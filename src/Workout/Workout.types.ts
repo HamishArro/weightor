@@ -1,0 +1,24 @@
+export interface WorkoutInterface {
+  date: Date;
+  exercises: Array<Cardio | Weight>;
+}
+
+export type Exercise = {
+  name: string;
+  musclesUsed: string[];
+  workoutEffort: number;
+};
+
+export type Cardio = Exercise & {
+  duration: number;
+};
+
+export type Weight = Exercise & {
+  sets: Set[];
+};
+
+export type Set = {
+  reps: number;
+  weight: number;
+  rest: number;
+};
