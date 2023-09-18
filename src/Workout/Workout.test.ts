@@ -30,114 +30,70 @@ describe('Workout tests', () => {
 
   describe('weight', () => {
     it('will add a weight exercise correctly', () => {
-      workout.addWeightExercise(
-        weightExercise.name,
-        weightExercise.musclesUsed,
-        weightExercise.workoutEffort,
-        weightExercise.sets,
-      );
+      workout.addWeightExercise(weightExercise);
 
       expect(workout.exercises).toEqual([weightExercise]);
     });
 
     it('will throw and error when name is undefined', () => {
       expect(() =>
-        workout.addWeightExercise(
-          '',
-          cardioExercise.musclesUsed,
-          cardioExercise.workoutEffort,
-          weightExercise.sets,
-        ),
+        workout.addWeightExercise({...weightExercise, name: ''}),
       ).toThrowError(Errors.NAME_UNDEFINED);
     });
 
     it('will throw and error when the input is lower than the limit (weight)', () => {
       expect(() =>
-        workout.addWeightExercise(
-          weightExercise.name,
-          weightExercise.musclesUsed,
-          -10,
-          weightExercise.sets,
-        ),
+        workout.addWeightExercise({...weightExercise, workoutEffort: -10}),
       ).toThrowError(Errors.WORKOUT_EFFORT_RANGE);
     });
 
     it('will throw and error when the input is higher than the limit (weight)', () => {
       expect(() =>
-        workout.addWeightExercise(
-          weightExercise.name,
-          weightExercise.musclesUsed,
-          1000,
-          weightExercise.sets,
-        ),
+        workout.addWeightExercise({...weightExercise, workoutEffort: 1000}),
       ).toThrowError(Errors.WORKOUT_EFFORT_RANGE);
     });
 
     it('will throw and error when no muscles are provided', () => {
       expect(() =>
-        workout.addWeightExercise(
-          cardioExercise.name,
-          [],
-          cardioExercise.workoutEffort,
-          weightExercise.sets,
-        ),
+        workout.addWeightExercise({
+          ...weightExercise,
+          musclesUsed: [],
+        }),
       ).toThrowError(Errors.MUSCLES_USED_EMPTY);
     });
   });
 
   describe('cardio', () => {
     it('will add a cardio exercise correctly', () => {
-      workout.addCardioExercise(
-        cardioExercise.name,
-        cardioExercise.musclesUsed,
-        cardioExercise.workoutEffort,
-        cardioExercise.duration,
-      );
+      workout.addCardioExercise(cardioExercise);
 
       expect(workout.exercises).toEqual([cardioExercise]);
     });
 
     it('will throw and error when name is undefined', () => {
       expect(() =>
-        workout.addCardioExercise(
-          '',
-          cardioExercise.musclesUsed,
-          cardioExercise.workoutEffort,
-          cardioExercise.duration,
-        ),
+        workout.addCardioExercise({
+          ...cardioExercise,
+          name: '',
+        }),
       ).toThrowError(Errors.NAME_UNDEFINED);
     });
 
     it('will throw and error when the input is lower than the limit', () => {
       expect(() =>
-        workout.addCardioExercise(
-          cardioExercise.name,
-          cardioExercise.musclesUsed,
-          -10,
-          cardioExercise.duration,
-        ),
+        workout.addCardioExercise({...cardioExercise, workoutEffort: -10}),
       ).toThrowError(Errors.WORKOUT_EFFORT_RANGE);
     });
 
     it('will throw and error when the input is higher than the limit', () => {
       expect(() =>
-        workout.addCardioExercise(
-          cardioExercise.name,
-          cardioExercise.musclesUsed,
-          1000,
-          cardioExercise.duration,
-        ),
+        workout.addCardioExercise({...cardioExercise, workoutEffort: 1000}),
       ).toThrowError(Errors.WORKOUT_EFFORT_RANGE);
     });
 
     it('will throw and error when no muscles are provided', () => {
       expect(() =>
-        workout.addCardioExercise(
-          cardioExercise.name,
-          [],
-          cardioExercise.workoutEffort,
-          cardioExercise.duration,
-        ),
+        workout.addCardioExercise({...cardioExercise, musclesUsed: []}),
       ).toThrowError(Errors.MUSCLES_USED_EMPTY);
     });
   });

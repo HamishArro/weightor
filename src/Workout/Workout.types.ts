@@ -1,18 +1,8 @@
 export interface WorkoutInterface {
   date: Date;
   exercises: Array<Cardio | Weight>;
-  addWeightExercise: (
-    name: string,
-    musclesUsed: string[],
-    workoutEffort: number,
-    sets: Set[],
-  ) => void;
-  addCardioExercise: (
-    name: string,
-    musclesUsed: string[],
-    workoutEffort: number,
-    duration: number,
-  ) => void;
+  addWeightExercise: (exercise: Weight) => void;
+  addCardioExercise: (exercise: Cardio) => void;
 }
 
 type Exercise = {

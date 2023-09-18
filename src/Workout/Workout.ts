@@ -11,7 +11,7 @@
 //  - weight in kg √
 //  - rest duration in seconds √
 
-import {WorkoutInterface, Cardio, Weight, Set} from './Workout.types';
+import {WorkoutInterface, Cardio, Weight} from './Workout.types';
 
 const WORKOUT_EFFORT_MAX_LIMIT = 100;
 const WORKOUT_EFFORT_LOWER_LIMIT = 0;
@@ -48,12 +48,7 @@ class Workout implements WorkoutInterface {
     if (!name) throw new Error(Errors.NAME_UNDEFINED);
   }
 
-  public addWeightExercise(
-    name: string,
-    musclesUsed: string[],
-    workoutEffort: number,
-    sets: Set[],
-  ) {
+  public addWeightExercise({name, musclesUsed, workoutEffort, sets}: Weight) {
     this.validateName(name);
     this.validateMusclesUsed(musclesUsed);
     this.validateWorkoutEffort(workoutEffort);
@@ -61,12 +56,12 @@ class Workout implements WorkoutInterface {
     this.exercises.push({name, musclesUsed, workoutEffort, sets});
   }
 
-  public addCardioExercise(
-    name: string,
-    musclesUsed: string[],
-    workoutEffort: number,
-    duration: number,
-  ) {
+  public addCardioExercise({
+    name,
+    musclesUsed,
+    workoutEffort,
+    duration,
+  }: Cardio) {
     this.validateName(name);
     this.validateMusclesUsed(musclesUsed);
     this.validateWorkoutEffort(workoutEffort);
