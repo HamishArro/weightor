@@ -19,7 +19,8 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import Header from './src/Header/Header';
+import Header from './src/components/Header/Header';
+import CreateWorkout from './src/components/CreateWorkout/CreateWorkout';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -29,6 +30,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
+      <CreateWorkout />
       <Text
         style={[
           styles.sectionTitle,

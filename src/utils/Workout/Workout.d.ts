@@ -1,9 +1,11 @@
 export interface WorkoutInterface {
   date: Date;
-  exercises: Array<Cardio | Weight>;
+  exercises: Exercises;
   addWeightExercise: (exercise: Weight) => void;
   addCardioExercise: (exercise: Cardio) => void;
 }
+
+export type Exercises = Array<Cardio | Weight>;
 
 type Exercise = {
   name: string;

@@ -1,4 +1,4 @@
-import {WorkoutInterface, Cardio, Weight} from './Workout.d';
+import {WorkoutInterface, Cardio, Weight, Exercises} from './Workout.d';
 
 const WORKOUT_EFFORT_MAX_LIMIT = 100;
 const WORKOUT_EFFORT_LOWER_LIMIT = 0;
@@ -62,3 +62,5 @@ class Workout implements WorkoutInterface {
 }
 
 export default Workout;
+
+export type {WorkoutInterface, Cardio, Weight, Exercises};

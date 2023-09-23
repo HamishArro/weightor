@@ -1,6 +1,6 @@
 import Workout, {Errors} from './Workout';
 import {describe, it, expect, beforeEach} from '@jest/globals';
-import {Cardio, Weight, WorkoutInterface} from './Workout.d';
+import {Cardio, Weight, WorkoutInterface} from './Workout';
 
 let workout: WorkoutInterface;
 
