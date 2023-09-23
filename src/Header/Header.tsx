@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, useColorScheme, View, StyleSheet} from 'react-native';
-import {HeaderProps} from './Header.types';
+import {HeaderProps} from './Header.d';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const styles = StyleSheet.create({
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
 
 function Header({title}: HeaderProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={styles.headerContainer} testID="header-container">
       <Text

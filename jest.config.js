@@ -5,13 +5,14 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ['clover', 'json', 'lcov', ['text', {skipFull: true}]],
   collectCoverageFrom: ['./src/**/*.{ts,tsx}'],
+  coveragePathIgnorePatterns: ['^.*.(d.ts)$'],
   coverageProvider: 'v8',
   coverageThreshold: {
     global: {
-      branches: 80,
-      functions: 77.77,
-      lines: 74.34,
-      statements: 74.34,
+      branches: 93.33,
+      functions: 100,
+      lines: 100,
+      statements: 100,
     },
   },
 };

@@ -13,7 +13,7 @@ describe('Header tests', () => {
     expect(screen.queryByTestId('header-container')).toBeOnTheScreen();
   });
 
-  it('matches snapshot', () => {
+  it('matches snapshot (dark)', () => {
     expect(screen.toJSON()).toMatchSnapshot();
   });
 });
