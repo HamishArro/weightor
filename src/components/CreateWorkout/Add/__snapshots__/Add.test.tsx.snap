@@ -16,23 +16,27 @@ exports[`add tests matches snapshot 1`] = `
   <TextInput
     onChangeText={[Function]}
     placeholder="please enter name here"
+    testID="name-input"
     value=""
   />
   <TextInput
     onChangeText={[Function]}
     placeholder="please enter muscles used"
+    testID="muscles-used-input"
     value=""
   />
   <TextInput
     keyboardType="numeric"
     onChangeText={[Function]}
     placeholder="please enter workout effort"
+    testID="workout-effort-input"
     value=""
   />
   <TextInput
     keyboardType="numeric"
     onChangeText={[Function]}
-    placeholder="please enter workout effort"
+    placeholder="please enter duration"
+    testID="duration-input"
     value=""
   />
   <View
@@ -69,6 +73,7 @@ exports[`add tests matches snapshot 1`] = `
         "opacity": 1,
       }
     }
+    testID="add-button"
   >
     <View
       style={

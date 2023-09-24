@@ -20,7 +20,7 @@ enum states {
 
 function CreateWorkout(): JSX.Element {
   const [flowState, setFlowState] = useState<states>(states.CREATE);
-  const workout = new Workout(new Date());
+  const [workout] = useState(new Workout(new Date()));
 
   const handleCreate = () => {
     setFlowState(states.ADD);

@@ -25,23 +25,30 @@ class Workout implements WorkoutInterface {
     if (
       workoutEffort < WORKOUT_EFFORT_LOWER_LIMIT ||
       workoutEffort > WORKOUT_EFFORT_MAX_LIMIT
-    )
+    ) {
       throw new Error(Errors.WORKOUT_EFFORT_RANGE);
+    }
   }
 
   private validateMusclesUsed(musclesUsed: string[]) {
-    if (!musclesUsed.length) throw new Error(Errors.MUSCLES_USED_EMPTY);
+    if (!musclesUsed.length) {
+      throw new Error(Errors.MUSCLES_USED_EMPTY);
+    }
   }
 
   private validateName(name: string) {
-    if (!name) throw new Error(Errors.NAME_UNDEFINED);
+    if (!name) {
+      throw new Error(Errors.NAME_UNDEFINED);
+    }
   }
 
   public addWeightExercise({name, musclesUsed, workoutEffort, sets}: Weight) {
     this.validateName(name);
     this.validateMusclesUsed(musclesUsed);
     this.validateWorkoutEffort(workoutEffort);
-    if (!sets.length) throw new Error(Errors.SETS_EMPTY);
+    if (!sets.length) {
+      throw new Error(Errors.SETS_EMPTY);
+    }
 
     this.exercises.push({name, musclesUsed, workoutEffort, sets});
   }
@@ -55,7 +62,9 @@ class Workout implements WorkoutInterface {
     this.validateName(name);
     this.validateMusclesUsed(musclesUsed);
     this.validateWorkoutEffort(workoutEffort);
-    if (duration <= 0) throw new Error(Errors.DURATION_RANGE);
+    if (duration <= 0) {
+      throw new Error(Errors.DURATION_RANGE);
+    }
 
     this.exercises.push({name, musclesUsed, workoutEffort, duration});
   }

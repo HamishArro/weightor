@@ -28,28 +28,32 @@ function Add({addCardio}: AddProps) {
     <View style={styles.addContainer} testID="add-container">
       <Text children={'Add exercise'} />
       <TextInput
+        testID="name-input"
         value={name}
         onChangeText={setName}
         placeholder="please enter name here"
       />
       <TextInput
+        testID="muscles-used-input"
         value={musclesUsed}
         onChangeText={setMusclesUsed}
         placeholder="please enter muscles used"
       />
       <TextInput
+        testID="workout-effort-input"
         value={workoutEffort}
         onChangeText={setWorkoutEffort}
         placeholder="please enter workout effort"
         keyboardType="numeric"
       />
       <TextInput
+        testID="duration-input"
         value={duration}
         onChangeText={setDuration}
         placeholder="please enter duration"
         keyboardType="numeric"
       />
-      <Button title="add" onPress={handleAdd} />
+      <Button testID="add-button" title="add" onPress={handleAdd} />
     </View>
   );
 }
