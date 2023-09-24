@@ -1,18 +1,14 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Workout, {WorkoutInterface} from '../../utils/Workout/Workout';
+import Workout from '../../utils/Workout/Workout';
 import Create from './Create/Create';
 import Display from './Display/Display';
 import Add from './Add/Add';
 
 const styles = StyleSheet.create({
-  CreateWorkoutContainer: {
+  createWorkoutContainer: {
     margin: 32,
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: '600',
   },
 });
 
@@ -24,12 +20,9 @@ enum states {
 
 function CreateWorkout(): JSX.Element {
   const [flowState, setFlowState] = useState<states>(states.CREATE);
-  const [workout, setWorkout] = useState<WorkoutInterface | undefined>(
-    undefined,
-  );
+  const workout = new Workout(new Date());
 
   const handleCreate = () => {
-    setWorkout(new Workout(new Date()));
     setFlowState(states.ADD);
   };
 
@@ -38,11 +31,11 @@ function CreateWorkout(): JSX.Element {
       case states.CREATE:
         return <Create title="create" onPress={handleCreate} />;
       case states.ADD:
-        return <Add />;
+        return <Add addCardio={workout.addCardioExercise} />;
       case states.DISPLAY:
         return (
           <Display
-            exercises={workout?.exercises}
+            exercises={workout.exercises}
             addButtonText="Add another exercise"
             addHandler={() => setFlowState(states.ADD)}
           />
@@ -52,7 +45,7 @@ function CreateWorkout(): JSX.Element {
 
   return (
     <View
-      style={styles.CreateWorkoutContainer}
+      style={styles.createWorkoutContainer}
       testID="create-workflow-container">
       {stateSwitch()}
     </View>

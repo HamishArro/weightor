@@ -4,7 +4,7 @@ module.exports = {
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   collectCoverage: true,
   coverageReporters: ['clover', 'json', 'lcov', ['text', {skipFull: true}]],
-  collectCoverageFrom: ['./src/**/*.{ts,tsx}'],
+  collectCoverageFrom: ['./**/*.{ts,tsx}'],
   coveragePathIgnorePatterns: ['^.*.(d.ts)$'],
   coverageProvider: 'v8',
   coverageThreshold: {

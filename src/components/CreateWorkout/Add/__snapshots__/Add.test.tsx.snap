@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add tests matches snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "margin": 32,
+    }
+  }
+  testID="add-container"
+>
+  <Text>
+    Add exercise
+  </Text>
+  <TextInput
+    onChangeText={[Function]}
+    placeholder="please enter name here"
+    value=""
+  />
+  <TextInput
+    onChangeText={[Function]}
+    placeholder="please enter muscles used"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    placeholder="please enter workout effort"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    placeholder="please enter workout effort"
+    value=""
+  />
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {},
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "margin": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        add
+      </Text>
+    </View>
+  </View>
+</View>
+`;

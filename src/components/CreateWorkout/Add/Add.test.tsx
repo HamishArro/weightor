@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {describe, it, expect, beforeEach} from '@jest/globals';
 import {render, screen} from '@testing-library/react-native';
-import CreateWorkout from './CreateWorkout';
+import Add from './Add';
 
-describe('create workout tests', () => {
+describe('add tests', () => {
   beforeEach(() => {
-    render(<CreateWorkout />);
+    render(<Add />);
   });
 
   it('matches snapshot', () => {

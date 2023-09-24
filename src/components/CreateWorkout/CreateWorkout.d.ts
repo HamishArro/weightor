@@ -1,4 +1,4 @@
-import {Exercises} from '../../utils/Workout/Workout';
+import {Exercises, Cardio} from '../../utils/Workout/Workout';
 
 export type CreateProps = {
   title: string;
@@ -6,7 +6,11 @@ export type CreateProps = {
 };
 
 export type DisplayProps = {
-  exercises: Exercises | undefined;
+  exercises: Exercises;
   addButtonText: string;
   addHandler: () => void;
+};
+
+export type AddProps = {
+  addCardio: (exercise: Cardio) => void;
 };
