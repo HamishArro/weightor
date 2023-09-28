@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, useColorScheme, View, StyleSheet} from 'react-native';
-import {HeaderProps} from './Header.d';
+import {HeaderProps} from './types';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const styles = StyleSheet.create({

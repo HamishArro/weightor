@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, Button} from 'react-native';
-import {DisplayProps} from '../CreateWorkout.d';
+import {DisplayProps} from '../types';
 
 const styles = StyleSheet.create({
   displayContainer: {
