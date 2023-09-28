@@ -1,19 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Text, Button} from 'react-native';
+import {View, Text, Button} from 'react-native';
 import {DisplayProps} from '../types';
-
-const styles = StyleSheet.create({
-  displayContainer: {
-    margin: 32,
-    alignItems: 'center',
-  },
-});
+import {styles} from '../../../utils/styleSheet';
 
 function Display({exercises, addButtonText, addHandler}: DisplayProps) {
   return (
-    <View style={styles.displayContainer} testID="display-container">
+    <View style={styles.stage} testID="display-container">
       {exercises.map(({name}) => (
-        <Text testID={`exercise-${name}`} children={name} />
+        <Text key={name} testID={`exercise-${name}`} children={name} />
       ))}
       <Button testID="add-button" title={addButtonText} onPress={addHandler} />
     </View>

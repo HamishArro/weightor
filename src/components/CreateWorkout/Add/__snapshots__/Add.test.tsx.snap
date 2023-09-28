@@ -4,24 +4,41 @@ exports[`add tests matches snapshot 1`] = `
 <View
   style={
     {
-      "alignItems": "center",
-      "margin": 32,
+      "backgroundColor": "#dbdbdb",
+      "width": "100%",
     }
   }
   testID="add-container"
 >
-  <Text>
+  <Text
+    style={
+      {
+        "fontSize": 24,
+        "paddingBottom": 18,
+      }
+    }
+  >
     Add exercise
   </Text>
   <TextInput
     onChangeText={[Function]}
     placeholder="please enter name here"
+    style={
+      {
+        "paddingBottom": 12,
+      }
+    }
     testID="name-input"
     value=""
   />
   <TextInput
     onChangeText={[Function]}
     placeholder="please enter muscles used"
+    style={
+      {
+        "paddingBottom": 12,
+      }
+    }
     testID="muscles-used-input"
     value=""
   />
@@ -29,6 +46,11 @@ exports[`add tests matches snapshot 1`] = `
     keyboardType="numeric"
     onChangeText={[Function]}
     placeholder="please enter workout effort"
+    style={
+      {
+        "paddingBottom": 12,
+      }
+    }
     testID="workout-effort-input"
     value=""
   />
@@ -36,6 +58,11 @@ exports[`add tests matches snapshot 1`] = `
     keyboardType="numeric"
     onChangeText={[Function]}
     placeholder="please enter duration"
+    style={
+      {
+        "paddingBottom": 12,
+      }
+    }
     testID="duration-input"
     value=""
   />

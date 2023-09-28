@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import useWorkout, {Cardio} from '../../hooks/useWorkout/useWorkout';
 import Create from './Create/Create';
 import Display from './Display/Display';
 import Add from './Add/Add';
-
-const styles = StyleSheet.create({
-  createWorkoutContainer: {
-    margin: 32,
-    alignItems: 'center',
-  },
-});
+import {styles} from '../../utils/styleSheet';
 
 enum states {
   'CREATE',
@@ -32,7 +26,7 @@ function CreateWorkout(): JSX.Element {
     switch (flowState) {
       case states.CREATE:
         return (
-          <Create title="create" onPress={() => setFlowState(states.ADD)} />
+          <Create title="Create" onPress={() => setFlowState(states.ADD)} />
         );
       case states.ADD:
         return <Add addCardio={handleAdd} />;
@@ -48,9 +42,7 @@ function CreateWorkout(): JSX.Element {
   };
 
   return (
-    <View
-      style={styles.createWorkoutContainer}
-      testID="create-workflow-container">
+    <View style={styles.container} testID="create-workflow-container">
       {stateSwitch()}
     </View>
   );

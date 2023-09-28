@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
+import {View, Text, TextInput, Button} from 'react-native';
 import {AddProps} from '../types';
-
-const styles = StyleSheet.create({
-  addContainer: {
-    margin: 32,
-    alignItems: 'center',
-  },
-});
+import {styles} from '../../../utils/styleSheet';
 
 function Add({addCardio}: AddProps) {
   const [name, setName] = useState<string>('');
@@ -25,23 +19,26 @@ function Add({addCardio}: AddProps) {
   };
 
   return (
-    <View style={styles.addContainer} testID="add-container">
-      <Text children={'Add exercise'} />
+    <View style={styles.stage} testID="add-container">
+      <Text children={'Add exercise'} style={styles.title} />
       <TextInput
         testID="name-input"
         value={name}
+        style={styles.textInput}
         onChangeText={setName}
         placeholder="please enter name here"
       />
       <TextInput
         testID="muscles-used-input"
         value={musclesUsed}
+        style={styles.textInput}
         onChangeText={setMusclesUsed}
         placeholder="please enter muscles used"
       />
       <TextInput
         testID="workout-effort-input"
         value={workoutEffort}
+        style={styles.textInput}
         onChangeText={setWorkoutEffort}
         placeholder="please enter workout effort"
         keyboardType="numeric"
@@ -49,6 +46,7 @@ function Add({addCardio}: AddProps) {
       <TextInput
         testID="duration-input"
         value={duration}
+        style={styles.textInput}
         onChangeText={setDuration}
         placeholder="please enter duration"
         keyboardType="numeric"

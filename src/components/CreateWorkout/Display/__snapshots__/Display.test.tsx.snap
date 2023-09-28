@@ -4,8 +4,8 @@ exports[`display tests matches snapshot 1`] = `
 <View
   style={
     {
-      "alignItems": "center",
-      "margin": 32,
+      "backgroundColor": "#dbdbdb",
+      "width": "100%",
     }
   }
   testID="display-container"

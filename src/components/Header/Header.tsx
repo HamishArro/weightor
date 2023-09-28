@@ -1,28 +1,18 @@
 import React from 'react';
-import {Text, useColorScheme, View, StyleSheet} from 'react-native';
+import {Text, useColorScheme, View} from 'react-native';
 import {HeaderProps} from './types';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-const styles = StyleSheet.create({
-  headerContainer: {
-    margin: 32,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: '600',
-  },
-});
+import {styles} from '../../utils/styleSheet';
 
 function Header({title}: HeaderProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <View style={styles.headerContainer} testID="header-container">
+    <View style={styles.container} testID="header-container">
       <Text
         testID="title"
         style={[
-          styles.title,
+          styles.headerTitle,
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
