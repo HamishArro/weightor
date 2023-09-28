@@ -8,7 +8,7 @@ exports[`display tests matches snapshot 1`] = `
       "margin": 32,
     }
   }
-  testID="add-container"
+  testID="display-container"
 >
   <Text
     testID="exercise-cardio"

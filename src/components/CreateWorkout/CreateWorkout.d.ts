@@ -1,4 +1,4 @@
-import {Exercises, Cardio} from '../../utils/Workout/Workout';
+import {Exercises, Cardio} from '../../hooks/useWorkout/types';
 
 export type CreateProps = {
   title: string;

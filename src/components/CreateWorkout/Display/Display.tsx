@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
 function Display({exercises, addButtonText, addHandler}: DisplayProps) {
   return (
-    <View style={styles.displayContainer} testID="add-container">
+    <View style={styles.displayContainer} testID="display-container">
       {exercises.map(({name}) => (
         <Text testID={`exercise-${name}`} children={name} />
       ))}

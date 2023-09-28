@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Workout from '../../utils/Workout/Workout';
+import useWorkout, {Cardio} from '../../hooks/useWorkout/useWorkout';
 import Create from './Create/Create';
 import Display from './Display/Display';
 import Add from './Add/Add';
@@ -20,22 +20,26 @@ enum states {
 
 function CreateWorkout(): JSX.Element {
   const [flowState, setFlowState] = useState<states>(states.CREATE);
-  const [workout] = useState(new Workout(new Date()));
 
-  const handleCreate = () => {
-    setFlowState(states.ADD);
+  const {exercises, addCardioExercise} = useWorkout();
+
+  const handleAdd = (exercise: Cardio) => {
+    addCardioExercise(exercise);
+    setFlowState(states.DISPLAY);
   };
 
   const stateSwitch = () => {
     switch (flowState) {
       case states.CREATE:
-        return <Create title="create" onPress={handleCreate} />;
+        return (
+          <Create title="create" onPress={() => setFlowState(states.ADD)} />
+        );
       case states.ADD:
-        return <Add addCardio={workout.addCardioExercise} />;
+        return <Add addCardio={handleAdd} />;
       case states.DISPLAY:
         return (
           <Display
-            exercises={workout.exercises}
+            exercises={exercises}
             addButtonText="Add another exercise"
             addHandler={() => setFlowState(states.ADD)}
           />

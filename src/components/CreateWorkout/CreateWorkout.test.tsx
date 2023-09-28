@@ -16,7 +16,11 @@ describe('create workout tests', () => {
     fireEvent.changeText(screen.getByTestId('workout-effort-input'), '80');
     fireEvent.changeText(screen.getByTestId('duration-input'), '900');
 
-    // fireEvent.press(screen.getByTestId('add-button'));
+    fireEvent.press(screen.getByTestId('add-button'));
+
+    screen.getByTestId('display-container');
+
+    fireEvent.press(screen.getByTestId('add-button'));
   });
 
   it('matches snapshot', () => {

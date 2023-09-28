@@ -1,4 +1,5 @@
-import {WorkoutInterface, Cardio, Weight, Exercises} from './Workout.d';
+import {useState} from 'react';
+import {WorkoutInterface, Cardio, Weight, Exercises} from './types';
 
 const WORKOUT_EFFORT_MAX_LIMIT = 100;
 const WORKOUT_EFFORT_LOWER_LIMIT = 0;
@@ -12,16 +13,10 @@ export const Errors = {
   DURATION_RANGE: `Invalid duration, value must be more than ${DURATION_LOWER_LIMIT}`,
 };
 
-class Workout implements WorkoutInterface {
-  public date: Date;
-  public exercises: Array<Cardio | Weight>;
+function useWorkout() {
+  const [exercises, setExercise] = useState<Exercises>([]);
 
-  constructor(date: Date) {
-    this.date = date;
-    this.exercises = [];
-  }
-
-  private validateWorkoutEffort(workoutEffort: number) {
+  function validateWorkoutEffort(workoutEffort: number) {
     if (
       workoutEffort < WORKOUT_EFFORT_LOWER_LIMIT ||
       workoutEffort > WORKOUT_EFFORT_MAX_LIMIT
@@ -30,46 +25,48 @@ class Workout implements WorkoutInterface {
     }
   }
 
-  private validateMusclesUsed(musclesUsed: string[]) {
+  function validateMusclesUsed(musclesUsed: string[]) {
     if (!musclesUsed.length) {
       throw new Error(Errors.MUSCLES_USED_EMPTY);
     }
   }
 
-  private validateName(name: string) {
+  function validateName(name: string) {
     if (!name) {
       throw new Error(Errors.NAME_UNDEFINED);
     }
   }
 
-  public addWeightExercise({name, musclesUsed, workoutEffort, sets}: Weight) {
-    this.validateName(name);
-    this.validateMusclesUsed(musclesUsed);
-    this.validateWorkoutEffort(workoutEffort);
+  function addWeightExercise({name, musclesUsed, workoutEffort, sets}: Weight) {
+    validateName(name);
+    validateMusclesUsed(musclesUsed);
+    validateWorkoutEffort(workoutEffort);
     if (!sets.length) {
       throw new Error(Errors.SETS_EMPTY);
     }
 
-    this.exercises.push({name, musclesUsed, workoutEffort, sets});
+    setExercise([...exercises, {name, musclesUsed, workoutEffort, sets}]);
   }
 
-  public addCardioExercise({
+  function addCardioExercise({
     name,
     musclesUsed,
     workoutEffort,
     duration,
   }: Cardio) {
-    this.validateName(name);
-    this.validateMusclesUsed(musclesUsed);
-    this.validateWorkoutEffort(workoutEffort);
+    validateName(name);
+    validateMusclesUsed(musclesUsed);
+    validateWorkoutEffort(workoutEffort);
     if (duration <= 0) {
       throw new Error(Errors.DURATION_RANGE);
     }
 
-    this.exercises.push({name, musclesUsed, workoutEffort, duration});
+    setExercise([...exercises, {name, musclesUsed, workoutEffort, duration}]);
   }
+
+  return {exercises, addWeightExercise, addCardioExercise};
 }
 
-export default Workout;
+export default useWorkout;
 
 export type {WorkoutInterface, Cardio, Weight, Exercises};
