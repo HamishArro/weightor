@@ -18,6 +18,28 @@ describe('create workout tests', () => {
     screen.getByTestId('create-button');
   });
 
+  it(`will take me to add when I click back on cardio`, () => {
+    act(() => fireEvent.press(screen.getByTestId('create-button')));
+
+    screen.getByTestId('add-container');
+
+    act(() => fireEvent.press(screen.getByTestId('cardio-button')));
+
+    screen.getByTestId('cardio-container');
+
+    act(() => fireEvent.press(screen.getByTestId('back-button')));
+
+    screen.getByTestId('add-container');
+  });
+
+  it(`can create a weight exercise successfully`, () => {
+    act(() => fireEvent.press(screen.getByTestId('create-button')));
+
+    screen.getByTestId('add-container');
+
+    act(() => fireEvent.press(screen.getByTestId('weight-button')));
+  });
+
   it('can create a cardio workout successfully', async () => {
     act(() => fireEvent.press(screen.getByTestId('create-button')));
 
