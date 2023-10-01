@@ -29,13 +29,22 @@ function CreateWorkout(): JSX.Element {
           <Create title="Create" onPress={() => setFlowState(states.ADD)} />
         );
       case states.ADD:
-        return <Add addCardio={handleAdd} />;
+        return (
+          <Add
+            handleAdd={handleAdd}
+            handleBack={
+              exercises.length
+                ? () => setFlowState(states.DISPLAY)
+                : () => setFlowState(states.CREATE)
+            }
+          />
+        );
       case states.DISPLAY:
         return (
           <Display
             exercises={exercises}
             addButtonText="Add another exercise"
-            addHandler={() => setFlowState(states.ADD)}
+            handleAdd={() => setFlowState(states.ADD)}
           />
         );
     }

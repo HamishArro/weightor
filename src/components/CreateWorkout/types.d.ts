@@ -8,9 +8,10 @@ export type CreateProps = {
 export type DisplayProps = {
   exercises: Exercises;
   addButtonText: string;
-  addHandler: () => void;
+  handleAdd: () => void;
 };
 
 export type AddProps = {
-  addCardio: (exercise: Cardio) => void;
+  handleBack: () => void;
+  handleAdd: (exercise: Cardio) => void;
 };

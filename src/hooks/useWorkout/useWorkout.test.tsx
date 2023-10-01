@@ -1,10 +1,6 @@
 import useWorkout, {Errors} from './useWorkout';
 import {describe, it, expect, beforeEach} from '@jest/globals';
-import {
-  RenderHookResult,
-  renderHook,
-  waitFor,
-} from '@testing-library/react-native';
+import {RenderHookResult, renderHook, act} from '@testing-library/react-native';
 import {Cardio, Weight} from './types';
 
 let hook: RenderHookResult<ReturnType<typeof useWorkout>, unknown>;
@@ -32,29 +28,23 @@ describe('Workout tests', () => {
   });
 
   it('will create a workout with both weight and cardio exercises', async () => {
-    hook.result.current.addCardioExercise(cardioExercise);
+    act(() => hook.result.current.addCardioExercise(cardioExercise));
 
-    await waitFor(() =>
-      expect(hook.result.current.exercises).toEqual([cardioExercise]),
-    );
+    expect(hook.result.current.exercises).toEqual([cardioExercise]);
 
-    hook.result.current.addWeightExercise(weightExercise);
+    act(() => hook.result.current.addWeightExercise(weightExercise));
 
-    await waitFor(() =>
-      expect(hook.result.current.exercises).toEqual([
-        cardioExercise,
-        weightExercise,
-      ]),
-    );
+    expect(hook.result.current.exercises).toEqual([
+      cardioExercise,
+      weightExercise,
+    ]);
   });
 
   describe('weight', () => {
     it('will add a weight exercise correctly', async () => {
-      hook.result.current.addWeightExercise(weightExercise);
+      act(() => hook.result.current.addWeightExercise(weightExercise));
 
-      await waitFor(() =>
-        expect(hook.result.current.exercises).toEqual([weightExercise]),
-      );
+      expect(hook.result.current.exercises).toEqual([weightExercise]);
     });
 
     describe('errors', () => {
@@ -104,11 +94,9 @@ describe('Workout tests', () => {
 
   describe('cardio', () => {
     it('will add a cardio exercise correctly', async () => {
-      hook.result.current.addCardioExercise(cardioExercise);
+      act(() => hook.result.current.addCardioExercise(cardioExercise));
 
-      await waitFor(() =>
-        expect(hook.result.current.exercises).toEqual([cardioExercise]),
-      );
+      expect(hook.result.current.exercises).toEqual([cardioExercise]);
     });
 
     describe('errors', () => {

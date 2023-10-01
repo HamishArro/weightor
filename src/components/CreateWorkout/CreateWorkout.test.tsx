@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {describe, it, beforeEach} from '@jest/globals';
-import {fireEvent, render, screen} from '@testing-library/react-native';
+import {fireEvent, render, screen, act} from '@testing-library/react-native';
 import CreateWorkout from './CreateWorkout';
 
 describe('create workout tests', () => {
@@ -8,18 +8,32 @@ describe('create workout tests', () => {
     render(<CreateWorkout />);
   });
 
-  it('can create a workout successfully', () => {
-    fireEvent.press(screen.getByTestId('create-button'));
+  it(`will take me to create when I haven't added an exercise`, () => {
+    act(() => fireEvent.press(screen.getByTestId('create-button')));
 
-    fireEvent.changeText(screen.getByTestId('name-input'), 'light jog');
-    fireEvent.changeText(screen.getByTestId('muscles-used-input'), 'legs');
-    fireEvent.changeText(screen.getByTestId('workout-effort-input'), '80');
-    fireEvent.changeText(screen.getByTestId('duration-input'), '900');
+    act(() => fireEvent.press(screen.getByTestId('back-button')));
 
-    fireEvent.press(screen.getByTestId('add-button'));
+    screen.getByTestId('create-button');
+  });
+
+  it('can create a workout successfully', async () => {
+    act(() => fireEvent.press(screen.getByTestId('create-button')));
+
+    act(() => {
+      fireEvent.changeText(screen.getByTestId('name-input'), 'light jog');
+      fireEvent.changeText(screen.getByTestId('muscles-used-input'), 'legs');
+      fireEvent.changeText(screen.getByTestId('workout-effort-input'), '80');
+      fireEvent.changeText(screen.getByTestId('duration-input'), '900');
+    });
+
+    act(() => fireEvent.press(screen.getByTestId('add-button')));
 
     screen.getByTestId('display-container');
 
-    fireEvent.press(screen.getByTestId('add-button'));
+    act(() => fireEvent.press(screen.getByTestId('add-button')));
+
+    act(() => fireEvent.press(screen.getByTestId('back-button')));
+
+    screen.getByTestId('display-container');
   });
 });

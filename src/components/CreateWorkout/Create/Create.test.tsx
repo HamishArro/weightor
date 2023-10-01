@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {describe, it, expect, beforeEach, jest} from '@jest/globals';
-import {render, screen, fireEvent} from '@testing-library/react-native';
+import {render, screen, fireEvent, act} from '@testing-library/react-native';
 import Create from './Create';
 
 const props = {
@@ -14,7 +14,7 @@ describe('create tests', () => {
   });
 
   it('calls on press when clicked', () => {
-    fireEvent.press(screen.getByTestId('create-button'));
+    act(() => fireEvent.press(screen.getByTestId('create-button')));
 
     expect(props.onPress).toBeCalled();
   });

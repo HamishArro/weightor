@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {describe, it, expect, beforeEach, jest} from '@jest/globals';
-import {fireEvent, render, screen} from '@testing-library/react-native';
+import {fireEvent, render, screen, act} from '@testing-library/react-native';
 import Display from './Display';
 
 const cardioExercise = {
@@ -12,7 +12,7 @@ const cardioExercise = {
 
 const props = {
   exercises: [cardioExercise],
-  addHandler: jest.fn(),
+  handleAdd: jest.fn(),
   addButtonText: 'Add',
 };
 
@@ -22,9 +22,9 @@ describe('display tests', () => {
   });
 
   it('calls add handler when button is pressed', () => {
-    fireEvent.press(screen.getByTestId('add-button'));
+    act(() => fireEvent.press(screen.getByTestId('add-button')));
 
-    expect(props.addHandler).toHaveBeenCalled();
+    expect(props.handleAdd).toHaveBeenCalled();
   });
 
   it('matches snapshot', () => {

@@ -3,14 +3,14 @@ import {View, Text, TextInput, Button} from 'react-native';
 import {AddProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
 
-function Add({addCardio}: AddProps) {
+function Add({handleAdd, handleBack}: AddProps) {
   const [name, setName] = useState<string>('');
   const [musclesUsed, setMusclesUsed] = useState<string>('');
   const [workoutEffort, setWorkoutEffort] = useState<string>('');
   const [duration, setDuration] = useState<string>('');
 
-  const handleAdd = () => {
-    addCardio({
+  const handleSubmit = () => {
+    handleAdd({
       name,
       musclesUsed: musclesUsed.split(','),
       workoutEffort: parseInt(workoutEffort, 10),
@@ -21,6 +21,7 @@ function Add({addCardio}: AddProps) {
   return (
     <View style={styles.stage} testID="add-container">
       <Text children={'Add exercise'} style={styles.title} />
+      <Button testID="back-button" title="back" onPress={handleBack} />
       <TextInput
         testID="name-input"
         value={name}
@@ -51,7 +52,7 @@ function Add({addCardio}: AddProps) {
         placeholder="please enter duration"
         keyboardType="numeric"
       />
-      <Button testID="add-button" title="add" onPress={handleAdd} />
+      <Button testID="add-button" title="add" onPress={handleSubmit} />
     </View>
   );
 }
