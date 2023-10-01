@@ -13,5 +13,11 @@ export type DisplayProps = {
 
 export type AddProps = {
   handleBack: () => void;
+  handleCardio: () => void;
+  handleWeight: () => void;
+};
+
+export type CardioProps = {
+  handleBack: () => void;
   handleAdd: (exercise: Cardio) => void;
 };

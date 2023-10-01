@@ -11,13 +11,17 @@ describe('create workout tests', () => {
   it(`will take me to create when I haven't added an exercise`, () => {
     act(() => fireEvent.press(screen.getByTestId('create-button')));
 
+    screen.getByTestId('add-container');
+
     act(() => fireEvent.press(screen.getByTestId('back-button')));
 
     screen.getByTestId('create-button');
   });
 
-  it('can create a workout successfully', async () => {
+  it('can create a cardio workout successfully', async () => {
     act(() => fireEvent.press(screen.getByTestId('create-button')));
+
+    act(() => fireEvent.press(screen.getByTestId('cardio-button')));
 
     act(() => {
       fireEvent.changeText(screen.getByTestId('name-input'), 'light jog');
@@ -31,6 +35,8 @@ describe('create workout tests', () => {
     screen.getByTestId('display-container');
 
     act(() => fireEvent.press(screen.getByTestId('add-button')));
+
+    screen.getByTestId('add-container');
 
     act(() => fireEvent.press(screen.getByTestId('back-button')));
 

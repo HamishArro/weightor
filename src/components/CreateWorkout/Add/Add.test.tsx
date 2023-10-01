@@ -4,15 +4,9 @@ import {fireEvent, render, screen, act} from '@testing-library/react-native';
 import Add from './Add';
 
 const props = {
-  handleAdd: jest.fn(),
+  handleCardio: jest.fn(),
+  handleWeight: jest.fn(),
   handleBack: jest.fn(),
-};
-
-const cardioExercise = {
-  name: 'cardio',
-  musclesUsed: ['legs'],
-  workoutEffort: 50,
-  duration: 300,
 };
 
 describe('add tests', () => {
@@ -26,29 +20,16 @@ describe('add tests', () => {
     expect(props.handleBack).toHaveBeenCalled();
   });
 
-  it('can submit a form correctly', () => {
-    act(() => {
-      fireEvent.changeText(
-        screen.getByTestId('name-input'),
-        cardioExercise.name,
-      );
-      fireEvent.changeText(
-        screen.getByTestId('muscles-used-input'),
-        cardioExercise.musclesUsed.join(','),
-      );
-      fireEvent.changeText(
-        screen.getByTestId('workout-effort-input'),
-        JSON.stringify(cardioExercise.workoutEffort),
-      );
-      fireEvent.changeText(
-        screen.getByTestId('duration-input'),
-        JSON.stringify(cardioExercise.duration),
-      );
-    });
+  it('will call handle cardio when clicked', () => {
+    act(() => fireEvent.press(screen.getByTestId('cardio-button')));
 
-    act(() => fireEvent.press(screen.getByTestId('add-button')));
+    expect(props.handleCardio).toHaveBeenCalled();
+  });
 
-    expect(props.handleAdd).toHaveBeenCalledWith(cardioExercise);
+  it('will call handle weight when clicked', () => {
+    act(() => fireEvent.press(screen.getByTestId('weight-button')));
+
+    expect(props.handleWeight).toHaveBeenCalled();
   });
 
   it('matches snapshot', () => {
