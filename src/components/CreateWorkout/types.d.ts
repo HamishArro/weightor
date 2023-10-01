@@ -30,9 +30,3 @@ export type WeightProps = {
 export type SetProps = {
   handleAdd: (set: Set) => void;
 };
-
-export type SetViewProps = {
-  reps: number;
-  weight: number;
-  rest: number;
-};

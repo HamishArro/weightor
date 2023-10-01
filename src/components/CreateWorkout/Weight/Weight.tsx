@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import {SetProps, WeightProps, SetViewProps} from '../types';
+import {SetProps, WeightProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
 import {Set as SetType} from '../../../hooks/useWorkout/types';
 
-function SetView({reps, weight, rest}: SetViewProps) {
+function SetView({reps, weight, rest}: SetType) {
   return (
     <View style={styles.setContainer} testID="set-view-container">
       <Text children={reps} style={styles.text} />
