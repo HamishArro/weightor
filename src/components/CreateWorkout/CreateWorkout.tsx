@@ -2,27 +2,34 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import useWorkout, {
   Cardio as CardioType,
+  Weight as WeightType,
 } from '../../hooks/useWorkout/useWorkout';
 import Create from './Create/Create';
 import Display from './Display/Display';
 import Cardio from './Cardio/Cardio';
 import Add from './Add/Add';
 import {styles} from '../../utils/styleSheet';
+import Weight from './Weight/Weight';
 
 enum states {
   'ADD',
   'CREATE',
   'CARDIO',
   'DISPLAY',
+  'WEIGHT',
 }
 
 function CreateWorkout(): JSX.Element {
   const [flowState, setFlowState] = useState<states>(states.CREATE);
+  const {exercises, addCardioExercise, addWeightExercise} = useWorkout();
 
-  const {exercises, addCardioExercise} = useWorkout();
-
-  const handleAdd = (exercise: CardioType) => {
+  const handleAddCardio = (exercise: CardioType) => {
     addCardioExercise(exercise);
+    setFlowState(states.DISPLAY);
+  };
+
+  const handleAddWeight = (exercise: WeightType) => {
+    addWeightExercise(exercise);
     setFlowState(states.DISPLAY);
   };
 
@@ -37,7 +44,7 @@ function CreateWorkout(): JSX.Element {
           <Add
             handleBack={handleBack}
             handleCardio={() => setFlowState(states.CARDIO)}
-            handleWeight={() => setFlowState(states.CARDIO)}
+            handleWeight={() => setFlowState(states.WEIGHT)}
           />
         );
       case states.CREATE:
@@ -47,7 +54,7 @@ function CreateWorkout(): JSX.Element {
       case states.CARDIO:
         return (
           <Cardio
-            handleAdd={handleAdd}
+            handleAdd={handleAddCardio}
             handleBack={() => setFlowState(states.ADD)}
           />
         );
@@ -57,6 +64,13 @@ function CreateWorkout(): JSX.Element {
             exercises={exercises}
             addButtonText="Add another exercise"
             handleAdd={() => setFlowState(states.ADD)}
+          />
+        );
+      case states.WEIGHT:
+        return (
+          <Weight
+            handleAdd={handleAddWeight}
+            handleBack={() => setFlowState(states.ADD)}
           />
         );
     }
