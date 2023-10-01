@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests matches snapshot (dark) 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "margin": 32,
+    }
+  }
+  testID="header-container"
+>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 32,
+          "fontWeight": "600",
+        },
+        {
+          "color": "#000",
+        },
+      ]
+    }
+    testID="title"
+  >
+    title
+  </Text>
+</View>
+`;
