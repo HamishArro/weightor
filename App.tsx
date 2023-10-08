@@ -6,30 +6,20 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {colors} from './src/utils/styleSheet';
 import Header from './src/components/Header/Header';
 import CreateWorkout from './src/components/CreateWorkout/CreateWorkout';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: colors.mintCream,
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
@@ -38,7 +28,7 @@ function App(): JSX.Element {
         <Header title="Weightor" />
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            backgroundColor: colors.mintCream,
           }}>
           <CreateWorkout />
         </View>

@@ -30,3 +30,7 @@ export type WeightProps = {
 export type SetProps = {
   handleAdd: (set: Set) => void;
 };
+
+export type CellProps = {
+  text: string | number;
+};

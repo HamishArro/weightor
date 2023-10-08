@@ -1,15 +1,25 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import {SetProps, WeightProps} from '../types';
+import {SetProps, WeightProps, CellProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
 import {Set as SetType} from '../../../hooks/useWorkout/types';
+
+function Cell({text}: CellProps) {
+  return (
+    <View style={styles.cell}>
+      <Text>{text}</Text>
+    </View>
+  );
+}
 
 function SetView({reps, weight, rest}: SetType) {
   return (
     <View style={styles.setContainer} testID="set-view-container">
-      <Text children={reps} style={styles.text} />
-      <Text children={weight} style={styles.text} />
-      <Text children={rest} style={styles.text} />
+      <View style={styles.row}>
+        <Cell text={`reps: ${reps}`} />
+        <Cell text={`weight: ${weight}`} />
+        <Cell text={`rest: ${rest}`} />
+      </View>
     </View>
   );
 }
