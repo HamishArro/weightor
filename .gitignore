@@ -71,3 +71,5 @@ yarn.lock
 .expo
 dist/
 web-build/
+
+.envrc
