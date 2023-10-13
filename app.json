@@ -7,6 +7,12 @@
         "projectId": "7234d033-eac3-452c-94d9-dee17f46431e"
       }
     },
-    "owner": "hamisharro"
+    "owner": "hamisharro",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/7234d033-eac3-452c-94d9-dee17f46431e"
+    },
+    "android": {},
+    "ios": {}
   }
 }
