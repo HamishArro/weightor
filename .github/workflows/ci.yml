@@ -15,7 +15,8 @@ jobs:
       - name: Node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 20.x
+          cache: yarn
 
       - name: Install
         run: npm install
