@@ -13,7 +13,7 @@ exports[`add tests matches snapshot 1`] = `
   <Text
     style={
       {
-        "fontSize": 24,
+        "fontSize": 20,
         "paddingBottom": 18,
       }
     }
@@ -84,6 +84,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter name here"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -95,6 +96,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter muscles used"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -107,6 +109,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter workout effort"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -119,6 +122,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter duration"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }

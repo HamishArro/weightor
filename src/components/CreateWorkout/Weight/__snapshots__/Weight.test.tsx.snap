@@ -1,6 +1,239 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`add tests matches snapshot 1`] = `
+exports[`Cell tests matches snapshot (number) 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "margin": 10,
+    }
+  }
+>
+  <Text>
+    5
+  </Text>
+</View>
+`;
+
+exports[`Cell tests matches snapshot (text) 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "margin": 10,
+    }
+  }
+>
+  <Text>
+    cell
+  </Text>
+</View>
+`;
+
+exports[`Set View tests matches snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F3F7F0",
+    }
+  }
+  testID="set-view-container-1"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "margin": 10,
+        }
+      }
+    >
+      <Text>
+        reps: 12
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "margin": 10,
+        }
+      }
+    >
+      <Text>
+        weight: 20
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "margin": 10,
+        }
+      }
+    >
+      <Text>
+        rest: 60
+      </Text>
+    </View>
+    <Text
+      allowFontScaling={false}
+      onPress={
+        [MockFunction] {
+          "calls": [
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      selectable={false}
+      style={
+        [
+          {
+            "color": "black",
+            "fontSize": 24,
+          },
+          undefined,
+          {
+            "fontFamily": "anticon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+      testID="remove-set-1"
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Set tests matches snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F3F7F0",
+    }
+  }
+  testID="set-container"
+>
+  <TextInput
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    placeholder="please enter number off reps"
+    style={
+      {
+        "fontSize": 16,
+        "paddingBottom": 12,
+      }
+    }
+    testID="reps-input"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    placeholder="please enter weight"
+    style={
+      {
+        "fontSize": 16,
+        "paddingBottom": 12,
+      }
+    }
+    testID="weight-input"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    onChangeText={[Function]}
+    placeholder="please enter rest time"
+    style={
+      {
+        "fontSize": 16,
+        "paddingBottom": 12,
+      }
+    }
+    testID="rest-input"
+    value=""
+  />
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+    testID="save-button"
+  >
+    <View
+      style={
+        [
+          {},
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "margin": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        save
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Weight tests matches snapshot 1`] = `
 <View
   style={
     {
@@ -13,7 +246,7 @@ exports[`add tests matches snapshot 1`] = `
   <Text
     style={
       {
-        "fontSize": 24,
+        "fontSize": 20,
         "paddingBottom": 18,
       }
     }
@@ -84,6 +317,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter name here"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -95,6 +329,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter muscles used"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -107,6 +342,7 @@ exports[`add tests matches snapshot 1`] = `
     placeholder="please enter workout effort"
     style={
       {
+        "fontSize": 16,
         "paddingBottom": 12,
       }
     }
@@ -127,6 +363,7 @@ exports[`add tests matches snapshot 1`] = `
       placeholder="please enter number off reps"
       style={
         {
+          "fontSize": 16,
           "paddingBottom": 12,
         }
       }
@@ -139,6 +376,7 @@ exports[`add tests matches snapshot 1`] = `
       placeholder="please enter weight"
       style={
         {
+          "fontSize": 16,
           "paddingBottom": 12,
         }
       }
@@ -151,6 +389,7 @@ exports[`add tests matches snapshot 1`] = `
       placeholder="please enter rest time"
       style={
         {
+          "fontSize": 16,
           "paddingBottom": 12,
         }
       }

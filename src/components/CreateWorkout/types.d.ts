@@ -31,6 +31,11 @@ export type SetProps = {
   handleAdd: (set: Set) => void;
 };
 
+export type SetViewProps = Set & {
+  id: string;
+  handleRemove: () => void;
+};
+
 export type CellProps = {
   text: string | number;
 };

@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import {SetProps, WeightProps, CellProps} from '../types';
+import {SetProps, WeightProps, CellProps, SetViewProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
 import {Set as SetType} from '../../../hooks/useWorkout/types';
+import {AntDesign} from '@expo/vector-icons';
 
 function Cell({text}: CellProps) {
   return (
@@ -12,13 +13,20 @@ function Cell({text}: CellProps) {
   );
 }
 
-function SetView({reps, weight, rest}: SetType) {
+function SetView({id, reps, weight, rest, handleRemove}: SetViewProps) {
   return (
-    <View style={styles.setContainer} testID="set-view-container">
+    <View style={styles.setContainer} testID={`set-view-container-${id}`}>
       <View style={styles.row}>
         <Cell text={`reps: ${reps}`} />
         <Cell text={`weight: ${weight}`} />
         <Cell text={`rest: ${rest}`} />
+        <AntDesign
+          name="minuscircleo"
+          testID={`remove-set-${id}`}
+          onPress={handleRemove}
+          size={24}
+          color="black"
+        />
       </View>
     </View>
   );
@@ -86,6 +94,14 @@ function Weight({handleAdd, handleBack}: WeightProps) {
     });
   };
 
+  const handleRemove = (index: number) => {
+    const tempSets = [...sets];
+
+    tempSets.splice(index, 1);
+
+    setSets(tempSets);
+  };
+
   return (
     <View style={styles.stage} testID="weight-container">
       <Text children={'Add exercise'} style={styles.title} />
@@ -115,9 +131,11 @@ function Weight({handleAdd, handleBack}: WeightProps) {
       {sets.map(({reps, weight, rest}, index) => (
         <SetView
           key={`${reps}-${weight}-${rest}-${index}`}
+          id={`${index}`}
           reps={reps}
           weight={weight}
           rest={rest}
+          handleRemove={() => handleRemove(index)}
         />
       ))}
       <Set handleAdd={set => setSets([...sets, set])} />
@@ -127,3 +145,5 @@ function Weight({handleAdd, handleBack}: WeightProps) {
 }
 
 export default Weight;
+
+export {Set, SetView, Cell};

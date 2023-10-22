@@ -13,7 +13,7 @@ exports[`add tests matches snapshot 1`] = `
   <Text
     style={
       {
-        "fontSize": 24,
+        "fontSize": 20,
         "paddingBottom": 18,
       }
     }

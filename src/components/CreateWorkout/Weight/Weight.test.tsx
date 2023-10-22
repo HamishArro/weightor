@@ -1,9 +1,21 @@
 import * as React from 'react';
 import {describe, it, expect, beforeEach, jest} from '@jest/globals';
 import {fireEvent, render, screen, act} from '@testing-library/react-native';
-import Weight from './Weight';
+import Weight, {Cell, SetView, Set} from './Weight';
 
-const props = {
+const setViewProps = {
+  id: '1',
+  reps: 12,
+  weight: 20,
+  rest: 60,
+  handleRemove: jest.fn(),
+};
+
+const setProps = {
+  handleAdd: jest.fn(),
+};
+
+const weightProps = {
   handleAdd: jest.fn(),
   handleBack: jest.fn(),
 };
@@ -15,15 +27,76 @@ const weightExercise = {
   sets: [{reps: 12, weight: 20, rest: 60}],
 };
 
-describe('add tests', () => {
+describe('Cell tests', () => {
+  it('matches snapshot (number)', () => {
+    render(<Cell text={5} />);
+
+    expect(screen.toJSON()).toMatchSnapshot();
+  });
+
+  it('matches snapshot (text)', () => {
+    render(<Cell text="cell" />);
+
+    expect(screen.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('Set View tests', () => {
   beforeEach(() => {
-    render(<Weight {...props} />);
+    render(<SetView {...setViewProps} />);
+  });
+
+  it('calls handle remove when clicked', () => {
+    fireEvent.press(screen.getByTestId('remove-set-1'));
+
+    expect(setViewProps.handleRemove).toBeCalled();
+  });
+
+  it('matches snapshot', () => {
+    expect(screen.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('Set tests', () => {
+  beforeEach(() => {
+    render(<Set {...setProps} />);
+  });
+
+  it('adds a set correctly', () => {
+    act(() => {
+      fireEvent.changeText(
+        screen.getByTestId('reps-input'),
+        JSON.stringify(weightExercise.sets[0].reps),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('weight-input'),
+        JSON.stringify(weightExercise.sets[0].weight),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('rest-input'),
+        JSON.stringify(weightExercise.sets[0].rest),
+      );
+    });
+
+    act(() => fireEvent.press(screen.getByTestId('save-button')));
+
+    expect(setProps.handleAdd).toHaveBeenCalledWith(weightExercise.sets[0]);
+  });
+
+  it('matches snapshot', () => {
+    expect(screen.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('Weight tests', () => {
+  beforeEach(() => {
+    render(<Weight {...weightProps} />);
   });
 
   it('will call handle back when clicked', () => {
     act(() => fireEvent.press(screen.getByTestId('back-button')));
 
-    expect(props.handleBack).toHaveBeenCalled();
+    expect(weightProps.handleBack).toHaveBeenCalled();
   });
 
   it('can submit a form correctly', () => {
@@ -60,7 +133,30 @@ describe('add tests', () => {
 
     act(() => fireEvent.press(screen.getByTestId('add-button')));
 
-    expect(props.handleAdd).toHaveBeenCalledWith(weightExercise);
+    expect(weightProps.handleAdd).toHaveBeenCalledWith(weightExercise);
+  });
+
+  it('can remove a set', () => {
+    act(() => {
+      fireEvent.changeText(
+        screen.getByTestId('reps-input'),
+        JSON.stringify(weightExercise.sets[0].reps),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('weight-input'),
+        JSON.stringify(weightExercise.sets[0].weight),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('rest-input'),
+        JSON.stringify(weightExercise.sets[0].rest),
+      );
+    });
+
+    act(() => fireEvent.press(screen.getByTestId('save-button')));
+
+    act(() => fireEvent.press(screen.getByTestId('remove-set-0')));
+
+    expect(screen.queryByTestId('set-view-container-0')).toBeNull();
   });
 
   it('matches snapshot', () => {
