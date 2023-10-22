@@ -5,6 +5,7 @@
  * @format
  */
 
+import {registerRootComponent} from 'expo';
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
 import {colors} from './src/utils/styleSheet';
@@ -37,4 +38,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+registerRootComponent(App);

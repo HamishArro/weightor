@@ -12,7 +12,11 @@
     "updates": {
       "url": "https://u.expo.dev/7234d033-eac3-452c-94d9-dee17f46431e"
     },
-    "android": {},
-    "ios": {}
+    "android": {
+      "package": "com.hamisharro.weightor"
+    },
+    "ios": {
+      "bundleIdentifier": "com.hamisharro.weightor"
+    }
   }
 }
