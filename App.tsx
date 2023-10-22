@@ -5,6 +5,7 @@
  * @format
  */
 
+import {registerRootComponent} from 'expo';
 import React from 'react';
 import {
   SafeAreaView,
@@ -47,4 +48,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+registerRootComponent(App);
