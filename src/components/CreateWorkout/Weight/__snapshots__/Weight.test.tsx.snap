@@ -223,6 +223,9 @@ exports[`Set tests matches snapshot 1`] = `
               "margin": 8,
               "textAlign": "center",
             },
+            {
+              "color": "#003844",
+            },
           ]
         }
       >
@@ -438,6 +441,9 @@ exports[`Weight tests matches snapshot 1`] = `
                 "margin": 8,
                 "textAlign": "center",
               },
+              {
+                "color": "#003844",
+              },
             ]
           }
         >
@@ -497,6 +503,9 @@ exports[`Weight tests matches snapshot 1`] = `
               "fontSize": 18,
               "margin": 8,
               "textAlign": "center",
+            },
+            {
+              "color": "#003844",
             },
           ]
         }
