@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, TextInput, Button} from 'react-native';
 import {CardioProps} from '../types';
-import {styles} from '../../../utils/styleSheet';
+import {styles, colors} from '../../../utils/styleSheet';
 import Title from '../Title/Title';
 
 function Cardio({handleAdd, handleBack}: CardioProps) {
@@ -52,7 +52,12 @@ function Cardio({handleAdd, handleBack}: CardioProps) {
         placeholder="please enter duration"
         keyboardType="numeric"
       />
-      <Button testID="add-button" title="add" onPress={handleSubmit} />
+      <Button
+        testID="add-button"
+        title="add"
+        onPress={handleSubmit}
+        color={colors.midnightGreen}
+      />
     </View>
   );
 }

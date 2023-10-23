@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
 import {SetProps, WeightProps, CellProps, SetViewProps} from '../types';
-import {styles} from '../../../utils/styleSheet';
+import {colors, styles} from '../../../utils/styleSheet';
 import {Set as SetType} from '../../../hooks/useWorkout/types';
 import {AntDesign} from '@expo/vector-icons';
 import Title from '../Title/Title';
@@ -75,7 +75,12 @@ function Set({handleAdd}: SetProps) {
         placeholder="please enter rest time"
         keyboardType="numeric"
       />
-      <Button testID="save-button" title="save" onPress={handleSubmit} />
+      <Button
+        testID="save-button"
+        title="save"
+        onPress={handleSubmit}
+        color={colors.midnightGreen}
+      />
     </View>
   );
 }
@@ -139,7 +144,12 @@ function Weight({handleAdd, handleBack}: WeightProps) {
         />
       ))}
       <Set handleAdd={set => setSets([...sets, set])} />
-      <Button testID="add-button" title="add" onPress={handleSubmit} />
+      <Button
+        testID="add-button"
+        title="add"
+        onPress={handleSubmit}
+        color={colors.midnightGreen}
+      />
     </View>
   );
 }
