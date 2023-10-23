@@ -9,7 +9,7 @@ const props = {
   handleBack: jest.fn(),
 };
 
-describe('add tests', () => {
+describe('Add tests', () => {
   beforeEach(() => {
     render(<Add {...props} />);
   });

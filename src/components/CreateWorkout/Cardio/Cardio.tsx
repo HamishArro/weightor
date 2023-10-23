@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, TextInput, Button} from 'react-native';
 import {CardioProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
+import Title from '../Title/Title';
 
 function Cardio({handleAdd, handleBack}: CardioProps) {
   const [name, setName] = useState<string>('');
@@ -20,8 +21,7 @@ function Cardio({handleAdd, handleBack}: CardioProps) {
 
   return (
     <View style={styles.stage} testID="cardio-container">
-      <Text children={'Add exercise'} style={styles.title} />
-      <Button testID="back-button" title="back" onPress={handleBack} />
+      <Title title="Add Cardio" handleBack={handleBack} />
       <TextInput
         testID="name-input"
         value={name}

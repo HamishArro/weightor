@@ -40,14 +40,14 @@ describe('Workout tests', () => {
     ]);
   });
 
-  describe('weight', () => {
+  describe('Weight', () => {
     it('will add a weight exercise correctly', async () => {
       act(() => hook.result.current.addWeightExercise(weightExercise));
 
       expect(hook.result.current.exercises).toEqual([weightExercise]);
     });
 
-    describe('errors', () => {
+    describe('Errors', () => {
       it('will throw and error when name is undefined', () => {
         expect(() =>
           hook.result.current.addWeightExercise({...weightExercise, name: ''}),
@@ -92,14 +92,14 @@ describe('Workout tests', () => {
     });
   });
 
-  describe('cardio', () => {
+  describe('Cardio', () => {
     it('will add a cardio exercise correctly', async () => {
       act(() => hook.result.current.addCardioExercise(cardioExercise));
 
       expect(hook.result.current.exercises).toEqual([cardioExercise]);
     });
 
-    describe('errors', () => {
+    describe('Errors', () => {
       it('will throw and error when name is undefined', () => {
         expect(() =>
           hook.result.current.addCardioExercise({

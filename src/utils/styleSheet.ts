@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 
 export const colors = {
   grey: '#dbdbdb',
+  white: '#FFFFFF',
+  black: '#000000',
   mintCream: '#F3F7F0',
   roseTaupe: '#8C5E58',
   amaranthPurple: '#A93F55',
@@ -42,7 +44,15 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: fontSizes.m,
-    paddingBottom: 18,
+    color: colors.white,
+  },
+  titleContainer: {
+    padding: 8,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: colors.midnightGreen,
   },
   headerContainer: {
     padding: 12,
@@ -52,6 +62,7 @@ export const styles = StyleSheet.create({
   headerTitle: {
     fontSize: fontSizes.xl,
     fontWeight: '600',
+    color: colors.black,
   },
   row: {
     flexDirection: 'row',

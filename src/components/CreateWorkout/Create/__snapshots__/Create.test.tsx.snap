@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create tests matches snapshot 1`] = `
+exports[`Create tests matches snapshot 1`] = `
 <View
   accessibilityRole="button"
   accessibilityState={

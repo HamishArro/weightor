@@ -243,74 +243,64 @@ exports[`Weight tests matches snapshot 1`] = `
   }
   testID="weight-container"
 >
-  <Text
-    style={
-      {
-        "fontSize": 20,
-        "paddingBottom": 18,
-      }
-    }
-  >
-    Add exercise
-  </Text>
   <View
-    accessibilityRole="button"
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       {
-        "opacity": 1,
+        "alignItems": "center",
+        "backgroundColor": "#003844",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 8,
       }
     }
-    testID="back-button"
+    testID="title-container"
   >
-    <View
+    <Text
+      style={
+        {
+          "color": "#FFFFFF",
+          "fontSize": 20,
+        }
+      }
+    >
+      Add Weight
+    </Text>
+    <Text
+      allowFontScaling={false}
+      onPress={
+        [MockFunction] {
+          "calls": [
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      selectable={false}
       style={
         [
+          {
+            "color": "white",
+            "fontSize": 20,
+          },
+          undefined,
+          {
+            "fontFamily": "anticon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
           {},
         ]
       }
+      testID="back-button"
     >
-      <Text
-        style={
-          [
-            {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "margin": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        back
-      </Text>
-    </View>
+      
+    </Text>
   </View>
   <TextInput
     onChangeText={[Function]}

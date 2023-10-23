@@ -15,7 +15,7 @@ const cardioExercise = {
   duration: 300,
 };
 
-describe('add tests', () => {
+describe('Cardio tests', () => {
   beforeEach(() => {
     render(<Cardio {...props} />);
   });

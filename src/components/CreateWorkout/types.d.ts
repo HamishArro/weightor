@@ -1,5 +1,10 @@
 import {Exercises, Cardio, Weight, Set} from '../../hooks/useWorkout/types';
 
+export type TitleProps = {
+  title: string;
+  handleBack: () => void;
+};
+
 export type CreateProps = {
   title: string;
   onPress: () => void;

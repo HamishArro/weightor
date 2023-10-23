@@ -13,15 +13,11 @@ exports[`Header tests matches snapshot (dark) 1`] = `
 >
   <Text
     style={
-      [
-        {
-          "fontSize": 28,
-          "fontWeight": "600",
-        },
-        {
-          "color": "#dbdbdb",
-        },
-      ]
+      {
+        "color": "#000000",
+        "fontSize": 28,
+        "fontWeight": "600",
+      }
     }
     testID="title"
   >

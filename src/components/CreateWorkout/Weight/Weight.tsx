@@ -4,11 +4,12 @@ import {SetProps, WeightProps, CellProps, SetViewProps} from '../types';
 import {styles} from '../../../utils/styleSheet';
 import {Set as SetType} from '../../../hooks/useWorkout/types';
 import {AntDesign} from '@expo/vector-icons';
+import Title from '../Title/Title';
 
 function Cell({text}: CellProps) {
   return (
     <View style={styles.cell}>
-      <Text>{text}</Text>
+      <Text children={text} />
     </View>
   );
 }
@@ -104,8 +105,7 @@ function Weight({handleAdd, handleBack}: WeightProps) {
 
   return (
     <View style={styles.stage} testID="weight-container">
-      <Text children={'Add exercise'} style={styles.title} />
-      <Button testID="back-button" title="back" onPress={handleBack} />
+      <Title title="Add Weight" handleBack={handleBack} />
       <TextInput
         testID="name-input"
         value={name}
