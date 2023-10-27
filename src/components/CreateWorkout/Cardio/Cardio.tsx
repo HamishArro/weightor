@@ -20,45 +20,47 @@ function Cardio({handleAdd, handleBack}: CardioProps) {
   };
 
   return (
-    <View style={styles.stage} testID="cardio-container">
+    <>
       <Title title="Add Cardio" handleBack={handleBack} />
-      <TextInput
-        testID="name-input"
-        value={name}
-        style={styles.textInput}
-        onChangeText={setName}
-        placeholder="please enter name here"
-      />
-      <TextInput
-        testID="muscles-used-input"
-        value={musclesUsed}
-        style={styles.textInput}
-        onChangeText={setMusclesUsed}
-        placeholder="please enter muscles used"
-      />
-      <TextInput
-        testID="workout-effort-input"
-        value={workoutEffort}
-        style={styles.textInput}
-        onChangeText={setWorkoutEffort}
-        placeholder="please enter workout effort"
-        keyboardType="numeric"
-      />
-      <TextInput
-        testID="duration-input"
-        value={duration}
-        style={styles.textInput}
-        onChangeText={setDuration}
-        placeholder="please enter duration"
-        keyboardType="numeric"
-      />
-      <Button
-        testID="add-button"
-        title="add"
-        onPress={handleSubmit}
-        color={colors.midnightGreen}
-      />
-    </View>
+      <View style={styles.stage} testID="cardio-container">
+        <TextInput
+          testID="name-input"
+          value={name}
+          style={styles.textInput}
+          onChangeText={setName}
+          placeholder="please enter name here"
+        />
+        <TextInput
+          testID="muscles-used-input"
+          value={musclesUsed}
+          style={styles.textInput}
+          onChangeText={setMusclesUsed}
+          placeholder="please enter muscles used"
+        />
+        <TextInput
+          testID="workout-effort-input"
+          value={workoutEffort}
+          style={styles.textInput}
+          onChangeText={setWorkoutEffort}
+          placeholder="please enter workout effort"
+          keyboardType="numeric"
+        />
+        <TextInput
+          testID="duration-input"
+          value={duration}
+          style={styles.textInput}
+          onChangeText={setDuration}
+          placeholder="please enter duration"
+          keyboardType="numeric"
+        />
+        <Button
+          testID="add-button"
+          title="add"
+          onPress={handleSubmit}
+          color={colors.midnightGreen}
+        />
+      </View>
+    </>
   );
 }
 

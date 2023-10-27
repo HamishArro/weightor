@@ -1,6 +1,12 @@
 import * as React from 'react';
 import {describe, it, expect, beforeEach, jest} from '@jest/globals';
-import {fireEvent, render, screen, act} from '@testing-library/react-native';
+import {
+  fireEvent,
+  render,
+  screen,
+  act,
+  within,
+} from '@testing-library/react-native';
 import Weight, {Cell, SetView, Set} from './Weight';
 
 const setViewProps = {
@@ -12,7 +18,10 @@ const setViewProps = {
 };
 
 const setProps = {
+  handleBack: jest.fn(),
   handleAdd: jest.fn(),
+  visible: true,
+  title: 'Add set',
 };
 
 const weightProps = {
@@ -60,6 +69,37 @@ describe('Set View tests', () => {
 describe('Set tests', () => {
   beforeEach(() => {
     render(<Set {...setProps} />);
+  });
+
+  it('save button will not be preset if no values are inputted', () => {
+    expect(screen.queryByTestId('save-button')).toBe(null);
+  });
+
+  it('invalidates incorrect string', () => {
+    act(() => {
+      fireEvent.changeText(
+        screen.getByTestId('reps-input'),
+        JSON.stringify(weightExercise.sets[0].reps),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('weight-input'),
+        JSON.stringify(weightExercise.sets[0].weight),
+      );
+      fireEvent.changeText(
+        screen.getByTestId('rest-input'),
+        JSON.stringify(weightExercise.sets[0].rest),
+      );
+    });
+
+    expect(screen.queryByTestId('save-button')).not.toBe(null);
+
+    act(() => {
+      fireEvent.changeText(screen.getByTestId('reps-input'), 'is');
+      fireEvent.changeText(screen.getByTestId('weight-input'), 'not');
+      fireEvent.changeText(screen.getByTestId('rest-input'), 'valid');
+    });
+
+    expect(screen.queryByTestId('save-button')).toBe(null);
   });
 
   it('adds a set correctly', () => {
@@ -113,7 +153,11 @@ describe('Weight tests', () => {
         screen.getByTestId('workout-effort-input'),
         JSON.stringify(weightExercise.workoutEffort),
       );
-      weightExercise.sets.forEach(({reps, weight, rest}) => {
+    });
+
+    weightExercise.sets.forEach(({reps, weight, rest}) => {
+      act(() => fireEvent.press(screen.getByTestId('add-set')));
+      act(() => {
         fireEvent.changeText(
           screen.getByTestId('reps-input'),
           JSON.stringify(reps),
@@ -127,9 +171,8 @@ describe('Weight tests', () => {
           JSON.stringify(rest),
         );
       });
+      act(() => fireEvent.press(screen.getByTestId('save-button')));
     });
-
-    act(() => fireEvent.press(screen.getByTestId('save-button')));
 
     act(() => fireEvent.press(screen.getByTestId('add-button')));
 
@@ -137,6 +180,8 @@ describe('Weight tests', () => {
   });
 
   it('can remove a set', () => {
+    act(() => fireEvent.press(screen.getByTestId('add-set')));
+
     act(() => {
       fireEvent.changeText(
         screen.getByTestId('reps-input'),
@@ -157,6 +202,16 @@ describe('Weight tests', () => {
     act(() => fireEvent.press(screen.getByTestId('remove-set-0')));
 
     expect(screen.queryByTestId('set-view-container-0')).toBeNull();
+  });
+
+  it('can close the set modal', () => {
+    act(() => fireEvent.press(screen.getByTestId('add-set')));
+
+    act(() =>
+      fireEvent.press(
+        within(screen.getByTestId('set-container')).getByTestId('back-button'),
+      ),
+    );
   });
 
   it('matches snapshot', () => {

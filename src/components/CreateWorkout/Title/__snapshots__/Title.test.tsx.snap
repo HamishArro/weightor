@@ -10,6 +10,7 @@ exports[`Title tests matches snapshot 1`] = `
       "flexDirection": "row",
       "justifyContent": "space-between",
       "padding": 8,
+      "width": "100%",
     }
   }
   testID="title-container"

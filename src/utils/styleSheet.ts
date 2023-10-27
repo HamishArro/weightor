@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.grey,
   },
   stage: {
+    padding: 8,
     backgroundColor: colors.grey,
     width: '100%',
   },
@@ -36,11 +37,14 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.mintCream,
   },
   text: {
-    fontSize: fontSizes.s,
+    fontSize: fontSizes.xs,
+    color: colors.black,
   },
   textInput: {
+    backgroundColor: colors.mintCream,
+    color: colors.midnightGreen,
     fontSize: fontSizes.s,
-    paddingBottom: 12,
+    marginBottom: 4,
   },
   title: {
     fontSize: fontSizes.m,
@@ -48,6 +52,7 @@ export const styles = StyleSheet.create({
   },
   titleContainer: {
     padding: 8,
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -71,6 +76,10 @@ export const styles = StyleSheet.create({
   },
   cell: {
     flex: 1,
-    margin: 10,
+    marginLeft: 8,
+  },
+  icon: {
+    color: colors.black,
+    paddingRight: 8,
   },
 });

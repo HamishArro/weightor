@@ -5,6 +5,7 @@ exports[`Display tests matches snapshot 1`] = `
   style={
     {
       "backgroundColor": "#dbdbdb",
+      "padding": 8,
       "width": "100%",
     }
   }

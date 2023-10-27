@@ -19,11 +19,14 @@ describe('Create Workout tests', () => {
       fireEvent.changeText(screen.getByTestId('name-input'), 'light jog');
       fireEvent.changeText(screen.getByTestId('muscles-used-input'), 'legs');
       fireEvent.changeText(screen.getByTestId('workout-effort-input'), '80');
+    });
+
+    act(() => fireEvent.press(screen.getByTestId('add-set')));
+    act(() => {
       fireEvent.changeText(screen.getByTestId('reps-input'), '12');
       fireEvent.changeText(screen.getByTestId('weight-input'), '20');
       fireEvent.changeText(screen.getByTestId('rest-input'), '60');
     });
-
     act(() => fireEvent.press(screen.getByTestId('save-button')));
 
     act(() => fireEvent.press(screen.getByTestId('add-button')));

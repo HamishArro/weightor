@@ -32,8 +32,9 @@ export type WeightProps = {
   handleAdd: (exercise: Weight) => void;
 };
 
-export type SetProps = {
+export type SetProps = TitleProps & {
   handleAdd: (set: Set) => void;
+  visible: boolean;
 };
 
 export type SetViewProps = Set & {
