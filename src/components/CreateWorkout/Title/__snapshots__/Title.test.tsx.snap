@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title tests matches snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#003844",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="title-container"
+>
+  <Text
+    style={
+      {
+        "color": "#FFFFFF",
+        "fontSize": 20,
+      }
+    }
+  >
+    title
+  </Text>
+  <Text
+    allowFontScaling={false}
+    onPress={
+      [MockFunction] {
+        "calls": [
+          [],
+        ],
+        "results": [
+          {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    selectable={false}
+    style={
+      [
+        {
+          "color": "white",
+          "fontSize": 20,
+        },
+        undefined,
+        {
+          "fontFamily": "anticon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        {},
+      ]
+    }
+    testID="back-button"
+  >
+    
+  </Text>
+</View>
+`;

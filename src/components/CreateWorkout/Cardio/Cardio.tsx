@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, TextInput, Button} from 'react-native';
 import {CardioProps} from '../types';
-import {styles} from '../../../utils/styleSheet';
+import {styles, colors} from '../../../utils/styleSheet';
+import Title from '../Title/Title';
 
 function Cardio({handleAdd, handleBack}: CardioProps) {
   const [name, setName] = useState<string>('');
@@ -19,41 +20,47 @@ function Cardio({handleAdd, handleBack}: CardioProps) {
   };
 
   return (
-    <View style={styles.stage} testID="cardio-container">
-      <Text children={'Add exercise'} style={styles.title} />
-      <Button testID="back-button" title="back" onPress={handleBack} />
-      <TextInput
-        testID="name-input"
-        value={name}
-        style={styles.textInput}
-        onChangeText={setName}
-        placeholder="please enter name here"
-      />
-      <TextInput
-        testID="muscles-used-input"
-        value={musclesUsed}
-        style={styles.textInput}
-        onChangeText={setMusclesUsed}
-        placeholder="please enter muscles used"
-      />
-      <TextInput
-        testID="workout-effort-input"
-        value={workoutEffort}
-        style={styles.textInput}
-        onChangeText={setWorkoutEffort}
-        placeholder="please enter workout effort"
-        keyboardType="numeric"
-      />
-      <TextInput
-        testID="duration-input"
-        value={duration}
-        style={styles.textInput}
-        onChangeText={setDuration}
-        placeholder="please enter duration"
-        keyboardType="numeric"
-      />
-      <Button testID="add-button" title="add" onPress={handleSubmit} />
-    </View>
+    <>
+      <Title title="Add Cardio" handleBack={handleBack} />
+      <View style={styles.stage} testID="cardio-container">
+        <TextInput
+          testID="name-input"
+          value={name}
+          style={styles.textInput}
+          onChangeText={setName}
+          placeholder="please enter name here"
+        />
+        <TextInput
+          testID="muscles-used-input"
+          value={musclesUsed}
+          style={styles.textInput}
+          onChangeText={setMusclesUsed}
+          placeholder="please enter muscles used"
+        />
+        <TextInput
+          testID="workout-effort-input"
+          value={workoutEffort}
+          style={styles.textInput}
+          onChangeText={setWorkoutEffort}
+          placeholder="please enter workout effort"
+          keyboardType="numeric"
+        />
+        <TextInput
+          testID="duration-input"
+          value={duration}
+          style={styles.textInput}
+          onChangeText={setDuration}
+          placeholder="please enter duration"
+          keyboardType="numeric"
+        />
+        <Button
+          testID="add-button"
+          title="add"
+          onPress={handleSubmit}
+          color={colors.midnightGreen}
+        />
+      </View>
+    </>
   );
 }
 

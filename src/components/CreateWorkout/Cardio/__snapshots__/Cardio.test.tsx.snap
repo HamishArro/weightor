@@ -1,188 +1,197 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`add tests matches snapshot 1`] = `
-<View
-  style={
-    {
-      "backgroundColor": "#dbdbdb",
-      "width": "100%",
-    }
-  }
-  testID="cardio-container"
->
-  <Text
-    style={
-      {
-        "fontSize": 24,
-        "paddingBottom": 18,
-      }
-    }
-  >
-    Add exercise
-  </Text>
+exports[`Cardio tests matches snapshot 1`] = `
+[
   <View
-    accessibilityRole="button"
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       {
-        "opacity": 1,
+        "alignItems": "center",
+        "backgroundColor": "#003844",
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 8,
+        "width": "100%",
       }
     }
-    testID="back-button"
+    testID="title-container"
   >
-    <View
+    <Text
+      style={
+        {
+          "color": "#FFFFFF",
+          "fontSize": 20,
+        }
+      }
+    >
+      Add Cardio
+    </Text>
+    <Text
+      allowFontScaling={false}
+      onPress={
+        [MockFunction] {
+          "calls": [
+            [],
+          ],
+          "results": [
+            {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      selectable={false}
       style={
         [
+          {
+            "color": "white",
+            "fontSize": 20,
+          },
+          undefined,
+          {
+            "fontFamily": "anticon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
           {},
         ]
       }
+      testID="back-button"
     >
-      <Text
-        style={
-          [
-            {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "margin": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        back
-      </Text>
-    </View>
-  </View>
-  <TextInput
-    onChangeText={[Function]}
-    placeholder="please enter name here"
-    style={
-      {
-        "paddingBottom": 12,
-      }
-    }
-    testID="name-input"
-    value=""
-  />
-  <TextInput
-    onChangeText={[Function]}
-    placeholder="please enter muscles used"
-    style={
-      {
-        "paddingBottom": 12,
-      }
-    }
-    testID="muscles-used-input"
-    value=""
-  />
-  <TextInput
-    keyboardType="numeric"
-    onChangeText={[Function]}
-    placeholder="please enter workout effort"
-    style={
-      {
-        "paddingBottom": 12,
-      }
-    }
-    testID="workout-effort-input"
-    value=""
-  />
-  <TextInput
-    keyboardType="numeric"
-    onChangeText={[Function]}
-    placeholder="please enter duration"
-    style={
-      {
-        "paddingBottom": 12,
-      }
-    }
-    testID="duration-input"
-    value=""
-  />
+      
+    </Text>
+  </View>,
   <View
-    accessibilityRole="button"
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       {
-        "opacity": 1,
+        "backgroundColor": "#dbdbdb",
+        "padding": 8,
+        "width": "100%",
       }
     }
-    testID="add-button"
+    testID="cardio-container"
   >
-    <View
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="please enter name here"
       style={
-        [
-          {},
-        ]
+        {
+          "backgroundColor": "#F3F7F0",
+          "color": "#003844",
+          "fontSize": 16,
+          "marginBottom": 4,
+        }
       }
+      testID="name-input"
+      value=""
+    />
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="please enter muscles used"
+      style={
+        {
+          "backgroundColor": "#F3F7F0",
+          "color": "#003844",
+          "fontSize": 16,
+          "marginBottom": 4,
+        }
+      }
+      testID="muscles-used-input"
+      value=""
+    />
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      placeholder="please enter workout effort"
+      style={
+        {
+          "backgroundColor": "#F3F7F0",
+          "color": "#003844",
+          "fontSize": 16,
+          "marginBottom": 4,
+        }
+      }
+      testID="workout-effort-input"
+      value=""
+    />
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      placeholder="please enter duration"
+      style={
+        {
+          "backgroundColor": "#F3F7F0",
+          "color": "#003844",
+          "fontSize": 16,
+          "marginBottom": 4,
+        }
+      }
+      testID="duration-input"
+      value=""
+    />
+    <View
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="add-button"
     >
-      <Text
+      <View
         style={
           [
-            {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "margin": 8,
-              "textAlign": "center",
-            },
+            {},
           ]
         }
       >
-        add
-      </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "margin": 8,
+                "textAlign": "center",
+              },
+              {
+                "color": "#003844",
+              },
+            ]
+          }
+        >
+          add
+        </Text>
+      </View>
     </View>
-  </View>
-</View>
+  </View>,
+]
 `;

@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'react-native',
+  preset: 'jest-expo',
   verbose: true,
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   collectCoverage: true,
@@ -9,7 +9,7 @@ module.exports = {
   coverageProvider: 'v8',
   coverageThreshold: {
     global: {
-      branches: 92.45,
+      branches: 100,
       functions: 100,
       lines: 100,
       statements: 100,

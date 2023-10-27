@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 import {DisplayProps} from '../types';
-import {styles} from '../../../utils/styleSheet';
+import {styles, colors} from '../../../utils/styleSheet';
 
 function Display({exercises, addButtonText, handleAdd}: DisplayProps) {
   return (
@@ -9,7 +9,12 @@ function Display({exercises, addButtonText, handleAdd}: DisplayProps) {
       {exercises.map(({name}) => (
         <Text key={name} testID={`exercise-${name}`} children={name} />
       ))}
-      <Button testID="add-button" title={addButtonText} onPress={handleAdd} />
+      <Button
+        testID="add-button"
+        title={addButtonText}
+        onPress={handleAdd}
+        color={colors.midnightGreen}
+      />
     </View>
   );
 }

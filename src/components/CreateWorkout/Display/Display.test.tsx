@@ -16,7 +16,7 @@ const props = {
   addButtonText: 'Add',
 };
 
-describe('display tests', () => {
+describe('Display tests', () => {
   beforeEach(() => {
     render(<Display {...props} />);
   });

@@ -5,22 +5,19 @@ exports[`Header tests matches snapshot (dark) 1`] = `
   style={
     {
       "alignItems": "center",
-      "margin": 32,
+      "backgroundColor": "#F3F7F0",
+      "padding": 12,
     }
   }
   testID="header-container"
 >
   <Text
     style={
-      [
-        {
-          "fontSize": 32,
-          "fontWeight": "600",
-        },
-        {
-          "color": "#000",
-        },
-      ]
+      {
+        "color": "#000000",
+        "fontSize": 28,
+        "fontWeight": "600",
+      }
     }
     testID="title"
   >

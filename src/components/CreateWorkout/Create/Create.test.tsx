@@ -8,7 +8,7 @@ const props = {
   title: 'create',
 };
 
-describe('create tests', () => {
+describe('Create tests', () => {
   beforeEach(() => {
     render(<Create {...props} />);
   });
